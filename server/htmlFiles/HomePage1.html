@@ -128,7 +128,7 @@ body {
 <script>
 var submitButton = $("#Run");
 var JSONdata;
-
+var JSONdata2;
 //getRequest
 var getRequest = function(flairType){
   console.log('getRequest for button sent');
@@ -148,13 +148,48 @@ var getRequest = function(flairType){
     });
 };
 
+var getRequest2 = function(flairType){
+  console.log('getRequest2 for button sent');
+  var r;
+    $.ajax({
+      method: "GET",
+      url: "https://enigmatic-sierra-18409.herokuapp.com/Favorites",
+      success: function(data){
+        r = JSON.stringify(data);
+        console.log(data);
+        JSONdata2 = data;
+        console.log(JSONdata2);
+      },
+      error: function(){
+        console.log('error with button get method');
+      }
+    });
+};
+
 submitButton.click(function(e){
+  String recs = "";
   console.log('button clicked');
   document.getElementById('displayText').innerHTML = 'button clicked';
   getRequest();
+  getRequest2();
   setTimeout(function() {
+    for(int i = 0; i<JSONdata.RecommendUser.length; i++){
+      for(int j = 0; j<JSONdata2.Favorite.length; j++){
+        if(JSONdata.RecommendUser[i].favoriteMovie1.equals(JSONdata2.Favorite[j].name)){
+          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie2;
+          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie3;
+        }else if(JSONdata.RecommendUser[i].favoriteMovie2.equals(JSONdata2.Favorite[j].name)){
+          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie1;
+          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie3;
+        }else if(JSONdata.RecommendUser[i].favoriteMovie3.equals(JSONdata2.Favorite[j].name)){
+          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie1;
+          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie2;
+          document.getElementById('displayText').innerHTML = recs;
+        }
 
-  }, 200 );
+      }
+    }
+  }, 220 );
 
   //document.getElementById('displayText').innerHTML = 'button clicked';
 });
