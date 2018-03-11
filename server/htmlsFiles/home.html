@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<title>API: Test</title>
+<head>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <style>
+  #response-section {
+    border: 1px solid black;
+    min-height: 100px;
+    min-width: 200px;
+    margin: 10px;
+    padding: 10px;
+  }
+  input[type=button] {
+    background-color: #da4519;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  input[type=button]:hover {
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+  <h1>Test</h1>
+  <h3>This is the GET method.</h3>
+  <p>It will show all the things in the database.</p>
+  <input type="button" id="api-btn-1" value="GET"/>
+
+  <h3>This is the POST method.</h3>
+  <p>It will post things into the database.</p>
+  <input type="text" value="Type something." id="userInput">
+  <input type="button" id="api-btn-2" value="POST"/>
+
+  <h3>This is something like a console, just for debuging purposes</h3>
+  <pre id="response-section"></pre>
+  <h3>Database:</h3>
+  <a href="https://murmuring-woodland-62196.herokuapp.com/todos">Click Me.</a>
+  <h3>Behind the scenes:</h3>
+  <p>When you post something, all you get to control is the 'text' value.</p>
+  <p>I have configured the database in such a way that it creates a '_id' value which is an encrypted unique id</p>
+  <p>This unique id allows you to reference that specific document.</p>
+  <p>The _id value also has the time and date that the doc was created encrypted into it.</p>
+  <script>
+    var apiBtn1 = $("#api-btn-1");
+    var apiBtn2 = $("#api-btn-2");
+
+    // If your API needs headers, add them here as JSON key-value pairs
+    var reqHeaders = {
+    };
+
+    var responseDiv = $("#response-section");
+
+    // This is a GET request
+    var makeAPI1Request = function(flairType) {
+      $.ajax({
+        method: "GET",
+        url: "https://murmuring-woodland-62196.herokuapp.com/todos",
+        headers: reqHeaders,
+        success: function(data) {
+          console.log(data);
+          responseDiv.html(JSON.stringify(data, undefined, 2));
+        },
+        error: function() {
+          responseDiv.html("error something isnt right");
+        }
+      });
+    };
+
+    // This is a POST request
+    var makeAPI2Request = function(arg) {
+      $.ajax({
+        url: "https://murmuring-woodland-62196.herokuapp.com/todos",
+        type: "POST",
+        headers: reqHeaders,
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify({text: arg}),
+        dataType: "json",
+        success: function(data) {
+          console.log(data);
+          responseDiv.html(JSON.stringify(data, undefined, 2));
+        },
+        error: function() {
+          responseDiv.html("error with post...");
+        }
+      });
+    };
+
+    apiBtn1.click(function(e) {
+      makeAPI1Request();
+    });
+
+    apiBtn2.click(function(e) {
+      var arg = String(userInput.value);
+      makeAPI2Request(arg);
+    });
+  </script>
+</body>
+</html>

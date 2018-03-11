@@ -2,7 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
-const {MongoClient} = require('mongodb')
+//const {MongoClient} = require('mongodb')
 //Import local stuff
 //REquire the mongoose config file
 var{mongoose}=require('./database/mongoose.js');
@@ -21,7 +21,7 @@ const port = process.env.PORT || 3000;
 
 //Render the home page
 app.get('/', (req, res) => {
-  res.sendFile(__dirname+'/htmlFiles/MyFavorites.html');
+  res.sendFile(__dirname+'/htmlFiles/home.html');
 });
 
 //Send the data to server (doesn't do anything with it yet)
