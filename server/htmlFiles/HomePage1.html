@@ -133,12 +133,14 @@ var JSONdata;
 var getRequest = function(flairType){
   console.log('getRequest for button sent');
   var r;
+  var obj
     $.ajax({
       method: "GET",
       url: "https://enigmatic-sierra-18409.herokuapp.com/RecommendUsers",
       success: function(data){
-        r = JSON.parse(data);
-        return r;
+        r = JSON.stringify(data);
+        obj = JSON.parse(r);
+        return obj;
       },
       error: function(){
         console.log('error with button get method');
