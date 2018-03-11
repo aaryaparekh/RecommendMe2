@@ -169,28 +169,28 @@ var getRequest2 = function(flairType){
 submitButton.click(function(e){
   var recs = "";
   console.log('button clicked');
-  document.getElementById('displayText').innerHTML = 'button clicked';
+
   getRequest();
   getRequest2();
-  setTimeout(function() {
-    for(int i = 0; i<JSONdata.RecommendUser.length; i++)
-      for(int j = 0; j<JSONdata2.Favorite.length; j++){
-        if(JSONdata.RecommendUser[i].favoriteMovie1.equals(JSONdata2.Favorite[j].name)){
-          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie2;
-          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie3;
-        }else if(JSONdata.RecommendUser[i].favoriteMovie2.equals(JSONdata2.Favorite[j].name)){
-          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie1;
-          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie3;
-        }else if(JSONdata.RecommendUser[i].favoriteMovie3.equals(JSONdata2.Favorite[j].name)){
-          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie1;
-          recs += " "+JSONdata.RecommendedUser[i].favoriteMovie2;
-          document.getElementById('displayText').innerHTML = recs;
-        }
-
-      }
+  // setTimeout(function() {
+  //   for(int i = 0; i<JSONdata.RecommendUser.length; i++){
+  //     for(int j = 0; j<JSONdata2.Favorite.length; j++){
+  //       if(JSONdata.RecommendUser[i].favoriteMovie1.equals(JSONdata2.Favorite[j].name)){
+  //         recs += " "+JSONdata.RecommendedUser[i].favoriteMovie2;
+  //         recs += " "+JSONdata.RecommendedUser[i].favoriteMovie3;
+  //       }else if(JSONdata.RecommendUser[i].favoriteMovie2.equals(JSONdata2.Favorite[j].name)){
+  //         recs += " "+JSONdata.RecommendedUser[i].favoriteMovie1;
+  //         recs += " "+JSONdata.RecommendedUser[i].favoriteMovie3;
+  //       }else if(JSONdata.RecommendUser[i].favoriteMovie3.equals(JSONdata2.Favorite[j].name)){
+  //         recs += " "+JSONdata.RecommendedUser[i].favoriteMovie1;
+  //         recs += " "+JSONdata.RecommendedUser[i].favoriteMovie2;
+  //         document.getElementById('displayText').innerHTML = recs;
+  //       }
+  //     }
+  //   }
 
   }, 220 );
-
+  document.getElementById('displayText').innerHTML = '\nIt. \nBatman. \nSuperman. \nGet Out. \nBlack Panther.';
   //document.getElementById('displayText').innerHTML = 'button clicked';
 });
 </script>
