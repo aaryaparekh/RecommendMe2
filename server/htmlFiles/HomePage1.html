@@ -154,8 +154,10 @@ submitButton.click(function(e){
   console.log('button clicked');
   document.getElementById('displayText').innerHTML = 'button clicked';
   getRequest();
+  setTimeout(function() {
+  console.log(JSONdata);}, 200);
   //parsedJSON = JSON.parse(JSONdata);
-  console.log(JSONdata);
+
   //console.log(JSONdata.RecommendUser[0].favoriteMovie1);
   //document.getElementById('displayText').innerHTML = 'button clicked';
 });
