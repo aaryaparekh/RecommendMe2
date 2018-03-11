@@ -128,8 +128,6 @@ body {
 <script>
 var submitButton = $("#Run");
 var JSONdata;
-var parsedJSON;
-JSONdata = 1;
 
 //getRequest
 var getRequest = function(flairType){
@@ -155,10 +153,9 @@ submitButton.click(function(e){
   document.getElementById('displayText').innerHTML = 'button clicked';
   getRequest();
   setTimeout(function() {
-  console.log(JSONdata);}, 200);
-  //parsedJSON = JSON.parse(JSONdata);
 
-  //console.log(JSONdata.RecommendUser[0].favoriteMovie1);
+  }, 200 );
+
   //document.getElementById('displayText').innerHTML = 'button clicked';
 });
 </script>

@@ -68,9 +68,9 @@ app.post('/favorites', (req,res)=>{
 });
 
 //Get request
-app.get('/recommendUsers', (req, res) => {
-  User.find().then((users)=>{
-    res.send({users});
+app.get('/favorites', (req, res) => {
+  Favorite.find().then((Favorite)=>{
+    res.send({Favorite});
   }, (e)=>{
     res.status(400).send(e);
   });
