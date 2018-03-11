@@ -137,7 +137,7 @@ var getRequest = function(flairType){
       method: "GET",
       url: "https://enigmatic-sierra-18409.herokuapp.com/RecommendUsers",
       success: function(data){
-        r = JSON.stringify(data);
+        r = JSON.parse(data);
         return r;
       },
       error: function(){
