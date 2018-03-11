@@ -129,6 +129,8 @@ body {
 var submitButton = $("#Run");
 var JSONdata;
 submitButton.click(function(e){
+  console.log('button clicked');
+  document.getElementById('displayText').innerHTML = 'button clicked';
   var getRequest = function(flairType){
     $.ajax({
       method: "GET",
