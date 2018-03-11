@@ -140,7 +140,7 @@ var getRequest = function(flairType){
       success: function(data){
         r = JSON.stringify(data);
         console.log(data);
-        return data;
+        JSONdata = data;
       },
       error: function(){
         console.log('error with button get method');
@@ -151,7 +151,7 @@ var getRequest = function(flairType){
 submitButton.click(function(e){
   console.log('button clicked');
   document.getElementById('displayText').innerHTML = 'button clicked';
-  JSONdata = getRequest();
+  getRequest();
   //parsedJSON = JSON.parse(JSONdata);
   console.log(JSONdata);
   //console.log(JSONdata.RecommendUser[0].favoriteMovie1);
