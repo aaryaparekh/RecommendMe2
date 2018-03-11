@@ -132,13 +132,15 @@ var JSONdata;
 //getRequest
 var getRequest = function(flairType){
   console.log('getRequest for button sent');
+  var r;
     $.ajax({
       method: "GET",
       url: "https://enigmatic-sierra-18409.herokuapp.com/RecommendUsers",
       success: function(data){
-        JSONdata = JSON.stringify(data);
-        console.log(data);
+        r = JSON.stringify(data);
+        console.log(r);
         // console.log(JSONdata);
+        return r;
       },
       error: function(){
         console.log('error with button get method');
@@ -149,7 +151,7 @@ var getRequest = function(flairType){
 submitButton.click(function(e){
   console.log('button clicked');
   document.getElementById('displayText').innerHTML = 'button clicked';
-
+  JSONdata = getRequest();
   //document.getElementById('displayText').innerHTML = 'button clicked';
 });
 </script>
