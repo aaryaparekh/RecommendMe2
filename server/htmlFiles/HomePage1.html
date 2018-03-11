@@ -104,6 +104,7 @@ body {
   color: white;
 }
 
+
 </style>
 </head>
 <body>
@@ -120,12 +121,29 @@ body {
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   <center>
   <input type="button" id="Run" value="RecommendMe"/>
-</center>
+  <label id="displayText">Display something</label>
+  </center>
+
 </div>
 <script>
 var submitButton = $("#Run");
-
-
+var JSONdata;
+submitButton.click(function(e){
+  var getRequest = function(flairType){
+    $.ajax({
+      method: "GET",
+      url: "https://enigmatic-sierra-18409.herokuapp.com/RecommendUsers",
+      success: function(data){
+        JSONdata = JSON.stringify(data);
+        console.log(JSONdata);
+      },
+      error: function(){
+        console.log('error with button get method');
+      }
+    });
+  }
+  //document.getElementById('displayText').innerHTML = 'button clicked';
+});
 </script>
 </body>
 </html>
