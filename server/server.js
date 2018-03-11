@@ -7,7 +7,7 @@ const {MongoClient} = require('mongodb')
 //REquire the mongoose config file
 var{mongoose}=require('./database/mongoose.js');
 //Load in the models from mongoose
-var {MainUserFavorites} = require('./models/mainUserFavorites');
+var {Favorite} = require('./models/mainUserFavorites');
 var {RecommendUser}= require('./models/user');
 
 var app = express();
@@ -52,11 +52,10 @@ app.get('/RecommendUsers', (req, res) => {
 });
 
 
-app.post('/favorites', (req,res)=>{
+app.post('/Favorites', (req,res)=>{
   console.log('posting to favorites');
-  var m = new MainUserFavorites({
-    name: req.body.name,
-    director: req.body.director
+  var m = new Favorite({
+    name: req.body.name
   });
 
   m.save().then((doc)=>{
