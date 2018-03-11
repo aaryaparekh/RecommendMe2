@@ -140,7 +140,7 @@ var getRequest = function(flairType){
       success: function(data){
         //r = JSON.stringify(data);
         console.log(data);
-        return data;
+        return data.RecommendUser;
       },
       error: function(){
         console.log('error with button get method');
