@@ -44,7 +44,7 @@ app.post('/RecommendUsers', (req, res)=>{
 
 
 app.get('/RecommendUsers', (req, res) => {
-  RecommendUsers.find().then((RecommendUser)=>{
+  RecommendUser.find().then((RecommendUser)=>{
     res.send({RecommendUser});
   }, (e)=>{
     res.status(400).send(e);
