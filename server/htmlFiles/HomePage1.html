@@ -138,8 +138,6 @@ var getRequest = function(flairType){
       url: "https://enigmatic-sierra-18409.herokuapp.com/RecommendUsers",
       success: function(data){
         r = JSON.stringify(data);
-        console.log(r);
-        // console.log(JSONdata);
         return r;
       },
       error: function(){
@@ -152,6 +150,7 @@ submitButton.click(function(e){
   console.log('button clicked');
   document.getElementById('displayText').innerHTML = 'button clicked';
   JSONdata = getRequest();
+  console.out.println(JSONdata.RecommendUser[0].favoriteMovie1);
   //document.getElementById('displayText').innerHTML = 'button clicked';
 });
 </script>
