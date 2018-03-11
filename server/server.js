@@ -42,6 +42,14 @@ app.post('/RecommendUsers', (req, res)=>{
   });
 });
 
+app.get('/RecommendUsers', (req, res) => {
+  RecommendUsers.find().then((RecommendUsers)=>{
+    res.send({RecommendUsers});
+  }, (e)=>{
+    res.status(400).(e);
+  });
+});
+
 
 app.post('/favorites', (req,res)=>{
   console.log('posting to favorites');
