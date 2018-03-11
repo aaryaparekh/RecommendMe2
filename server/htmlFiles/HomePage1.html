@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+      <meta charset = "utf-8">
       <title>RecommendME</title>
       <!--Google Fonts-->
       <link href="https://fonts.googleapis.com/css?family=Itim|Mina|Montserrat" rel="stylesheet">
@@ -112,22 +112,20 @@ body {
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="HomePage1.html">Home</a>
   <a href="MyFavorites.html">My Favorites</a>
+  <a href="#">Profile</a>
+  <a href="#">Logout</a>
 </div>
 
 <div id="main">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-  <input type="button" id="recommendMeButton" value="RecommendMe"/>
+  <center>
+  <input type="button" id="Run" value="RecommendMe"/>
+</center>
 </div>
 <script>
-var recommendMeButton = $("#recommendMeButton");
+var submitButton = $("#Run");
 
-var recommendGet = function(){
 
-}
-
-recommendMeButton.click(function(e){
-  recommendGet();
-}
 </script>
 </body>
 </html>
