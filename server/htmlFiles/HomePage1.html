@@ -137,7 +137,8 @@ submitButton.click(function(e){
       url: "https://enigmatic-sierra-18409.herokuapp.com/RecommendUsers",
       success: function(data){
         JSONdata = JSON.stringify(data);
-        console.log(JSONdata);
+        console.log(data);
+        // console.log(JSONdata);
       },
       error: function(){
         console.log('error with button get method');
